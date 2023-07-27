@@ -1,0 +1,21 @@
+#containerNumbersOperators {
+    display: flex;
+    gap: 50px;
+}
+
+/* Number buttons: */
+#gridContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 50px [col]);
+    grid-template-rows: repeat(5, 50px [col]);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+button {
+    font-style: oblique;
+}
+
+#btnZero {
+    grid-column:span 2;
+}
