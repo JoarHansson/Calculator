@@ -32,7 +32,7 @@ function operate(num1, operator, num2) {
 }
 
 
-const numberButtons = document.querySelectorAll(".gridItemNumbers");
+const numberButtons = document.querySelectorAll(".btnNumbers");
 
 numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -56,7 +56,7 @@ numberButtons.forEach((button) => {
 });
 
 
-const operatorButtons = document.querySelectorAll(".gridItemOperators");
+const operatorButtons = document.querySelectorAll(".btnOperators");
 
 operatorButtons.forEach((button) => {
     button.addEventListener("click", () => { 

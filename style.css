@@ -1,21 +1,114 @@
-#containerNumbersOperators {
-    display: flex;
-    gap: 50px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+html {
+    height: 100%;
 }
 
-/* Number buttons: */
+body {
+    height: 100%;
+    background-color: whitesmoke;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#containerDisplayAndGrid {
+ background-color: rgb(207, 207, 207);
+ padding: 2rem;
+ border-radius: 2rem;
+ border-width: 0.125rem;
+ border-style: solid;
+ border-color: rgb(66, 66, 66);
+ box-shadow: 4px 4px 0px 0px  rgb(66, 66, 66); 
+}
+
+#display {
+    background-color: whitesmoke;
+    color: rgb(66, 66, 66);
+    font-size: 3rem;
+    font-weight: 500;
+    padding: 0 1rem;
+    height: 8rem;
+    text-align: right;
+    border-radius: 0.5rem;
+    border-width: 0.125rem;
+    border-style: solid;
+    border-color: rgb(66, 66, 66);
+}
+
+/* buttons: */
 #gridContainer {
+    margin-top: 2rem;
     display: grid;
-    grid-template-columns: repeat(4, 50px [col]);
-    grid-template-rows: repeat(5, 50px [col]);
-    column-gap: 10px;
-    row-gap: 10px;
+    grid-template-columns: repeat(4, 6rem [col]);
+    grid-template-rows: repeat(5, 5rem [col]);
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
 }
 
 button {
-    font-style: oblique;
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(66, 66, 66);
+    /* font-style: oblique; */
+    font-size: 2rem;
+    font-weight: 500;
+    border-style: solid;
+    border-color: rgb(66, 66, 66);
+    border-radius: 0.5rem;
+    border-width: 0.125rem;
+    box-shadow: inset -2px -2px 0px 0px  rgb(66, 66, 66); 
 }
 
-#btnZero {
+button:active {
+    box-shadow: inset 1px 1px 0px 0px  rgb(66, 66, 66); 
+}
+
+#btnAllClear,
+#btnDelete {
     grid-column:span 2;
 }
+
+/* buttons hover effects: */
+.btnNumbers {
+    background-color: rgb(245, 245, 245);
+} 
+
+.btnNumbers:hover {
+    background-color: rgba(245, 245, 245, 0.7);
+}
+
+.btnOperators {
+    background-color: rgb(156, 241, 200);
+}
+
+.btnOperators:hover {
+    background-color: rgba(156, 241, 200, 0.7);
+}
+
+#btnEquals {
+    background-color: rgb(185, 233, 238);
+}
+
+#btnEquals:hover {
+    background-color: rgba(185, 233, 238, 0.7);
+}
+
+#btnAllClear {
+    background-color: rgb(247, 149, 136);
+}
+
+#btnAllClear:hover {
+    background-color: rgba(247, 149, 136, 0.7);
+}
+
+#btnDelete {
+    background-color: rgb(248, 209, 131);    
+}
+
+#btnDelete:hover {
+    background-color: rgba(248, 209, 131, 0.7);    
+}
+
