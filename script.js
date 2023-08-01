@@ -1,19 +1,3 @@
-function add(a, b) {
-    return a + b;
-}
-
-function subtract(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    return a / b;
-}
-
 let num1;
 let operator;
 let num2;
@@ -21,13 +5,13 @@ let numEquals;
 
 function operate(num1, operator, num2) {
     if (operator === "+") {
-       return add(num1, num2);
+        return num1 + num2;
     } else if (operator === "-") {
-        return subtract(num1, num2);
+        return num1 - num2;
     } else if (operator === "×") {
-        return multiply(num1, num2);
+        return num1 * num2;
     } else if (operator === "÷") {
-        return divide(num1, num2);
+        return num1 / num2;
     }
 }
 
@@ -38,10 +22,8 @@ function removeLeadingZeros(input) {
     return processedInput;
 }
   
-const display = document.querySelector("#display");
-
 const numberButtons = document.querySelectorAll(".btnNumbers");
-const zeroButton = document.querySelector("#btnZero");
+const display = document.querySelector("#display");
 
 numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -127,14 +109,12 @@ deleteButton.addEventListener("click", () => {
     if (num2 === undefined) {
         const myArray = Array.from(num1);
         myArray.pop();
-        let myString = myArray.join("")
-        num1 = myString;
+        num1 = myArray.join("");
         display.textContent = num1;
     } else {
         const myArray = Array.from(num2);
         myArray.pop();
-        let myString = myArray.join("")
-        num2 = myString;
+        num2 = myArray.join("");
         display.textContent = num1 + operator + num2;
     }
     if (display.textContent == "") {
@@ -155,15 +135,13 @@ decimalButton.addEventListener("click", () => {
     if (num2 === undefined && (containsSubstringTwice(num1, "\\."))) {
         const myArray = Array.from(num1);
         myArray.pop();
-        let myString = myArray.join("")
-        num1 = myString;
+        num1 = myArray.join("");
         display.textContent = num1;
 
     } else if (num2 !== undefined && (containsSubstringTwice(num2, "\\."))) {
         const myArray = Array.from(num2);
         myArray.pop();
-        let myString = myArray.join("")
-        num2 = myString;
+        num2 = myArray.join("");
         display.textContent = num1 + operator + num2;
     }
 });

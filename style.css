@@ -64,7 +64,6 @@ body {
 button {
     font-family: 'Roboto Mono', monospace;
     color: rgb(66, 66, 66);
-    /* font-style: oblique; */
     font-size: 1.5rem;
     font-weight: 500;
     border-style: solid;
@@ -125,7 +124,7 @@ button:active {
     background-color: rgba(248, 209, 131, 0.7);    
 }
 
-/* FOOTER */
+/* Footer */
 #footer {
     justify-self: flex-end;
     color: rgb(66, 66, 66);
