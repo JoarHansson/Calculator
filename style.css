@@ -11,21 +11,24 @@ body {
     font-size: 16px;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     box-sizing: border-box;
+    gap: 4rem;
 }
 
 #containerDisplayAndGrid {
- background-color: rgb(207, 207, 207);
- padding: 2rem;
- border-radius: 2rem;
- border-width: 0.125rem;
- border-style: solid;
- border-color: rgb(66, 66, 66);
- box-shadow: 4px 4px 0px 0px  rgb(66, 66, 66); 
- width: 400px;
- min-width: 400px;
+    background-color: rgb(207, 207, 207);
+    padding: 2rem;
+    margin-top: 8rem;
+    border-radius: 2rem;
+    border-width: 0.125rem;
+    border-style: solid;
+    border-color: rgb(66, 66, 66);
+    box-shadow: 4px 4px 0px 0px  rgb(66, 66, 66); 
+    width: 400px;
+    min-width: 400px;
 }
 
 #display {
@@ -122,3 +125,16 @@ button:active {
     background-color: rgba(248, 209, 131, 0.7);    
 }
 
+/* FOOTER */
+#footer {
+    justify-self: flex-end;
+    color: rgb(66, 66, 66);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 auto 1rem;
+}
+
+a {
+    color: rgb(66, 66, 66);
+    text-decoration: none;
+}

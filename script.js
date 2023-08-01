@@ -53,7 +53,6 @@ numberButtons.forEach((button) => {
             } else {
                 num1 += button.textContent;
             }
-            console.log(num1, operator, num2); 
             num1 = removeLeadingZeros(num1);
             display.textContent = num1;
 
@@ -63,7 +62,6 @@ numberButtons.forEach((button) => {
             } else {
                 num2 += button.textContent;
             }
-            console.log(num1, operator, num2);   
             num2 = removeLeadingZeros(num2);
             display.textContent = num1 + operator + num2;
         }     
@@ -87,7 +85,6 @@ operatorButtons.forEach((button) => {
             num1 = 0;
         }
         operator = button.textContent;
-        console.log(num1, operator, num2);
         display.textContent = num1 + operator;
     });
 });
@@ -109,8 +106,6 @@ equalsButton.addEventListener("click", () => {
         num2 = undefined;
         operator = undefined;
     }
-    console.log(numEquals);
-    console.log(num1, operator, num2);
     display.textContent = numEquals;
 });
 
@@ -122,7 +117,6 @@ allClearButton.addEventListener("click", () => {
     num2 = undefined;
     operator = undefined;
     numEquals = undefined;
-    console.log(num1, operator, num2, numEquals);
     display.textContent = "0";
 });
 
@@ -135,14 +129,12 @@ deleteButton.addEventListener("click", () => {
         myArray.pop();
         let myString = myArray.join("")
         num1 = myString;
-        console.log(num1, operator, num2);
         display.textContent = num1;
     } else {
         const myArray = Array.from(num2);
         myArray.pop();
         let myString = myArray.join("")
         num2 = myString;
-        console.log(num1, operator, num2);
         display.textContent = num1 + operator + num2;
     }
     if (display.textContent == "") {
@@ -165,8 +157,6 @@ decimalButton.addEventListener("click", () => {
         myArray.pop();
         let myString = myArray.join("")
         num1 = myString;
-        console.log(num1, operator, num2);
-        console.log(containsSubstringTwice(num1, "\\."));  
         display.textContent = num1;
 
     } else if (num2 !== undefined && (containsSubstringTwice(num2, "\\."))) {
@@ -174,8 +164,39 @@ decimalButton.addEventListener("click", () => {
         myArray.pop();
         let myString = myArray.join("")
         num2 = myString;
-        console.log(num1, operator, num2);
-        console.log(containsSubstringTwice(num2, "\\."));
         display.textContent = num1 + operator + num2;
+    }
+});
+
+
+const keyboardShortcuts = {
+    "1": "btnOne",
+    "2": "btnTwo",
+    "3": "btnThree",
+    "4": "btnFour",
+    "5": "btnFive",
+    "6": "btnSix",
+    "7": "btnSeven",
+    "8": "btnEight",
+    "9": "btnNine",
+    "0": "btnZero",
+    ".": "btnDecimal",
+    "Escape": "btnAllClear",
+    "Backspace": "btnDelete",
+    "+": "btnAdd",
+    "/": "btnDivide",
+    "-": "btnSubtract",
+    "*": "btnMultiply",
+    "Enter": "btnEquals"
+};
+
+document.addEventListener("keydown", function(event) {
+    const buttonId = keyboardShortcuts[event.key];
+
+    if (buttonId) {
+        const button = document.getElementById(buttonId);
+        if (button) {
+            button.click();
+        }
     }
 });
