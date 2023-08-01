@@ -24,19 +24,29 @@ function operate(num1, operator, num2) {
        return add(num1, num2);
     } else if (operator === "-") {
         return subtract(num1, num2);
-    } else if (operator === "*") {
+    } else if (operator === "×") {
         return multiply(num1, num2);
-    } else if (operator === "/") {
+    } else if (operator === "÷") {
         return divide(num1, num2);
     }
 }
 
 
+function removeLeadingZeros(input) {
+    const processedInput = input.replace(/^0+(?=\d)/, "");
+
+    return processedInput;
+}
+  
+const display = document.querySelector("#display");
+
 const numberButtons = document.querySelectorAll(".btnNumbers");
+const zeroButton = document.querySelector("#btnZero");
 
 numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
         numEquals = undefined;
+
         if (operator === undefined) {
             if (num1 === undefined) {
                 num1 = button.textContent;
@@ -44,6 +54,9 @@ numberButtons.forEach((button) => {
                 num1 += button.textContent;
             }
             console.log(num1, operator, num2); 
+            num1 = removeLeadingZeros(num1);
+            display.textContent = num1;
+
         } else if (operator !== undefined) {
             if (num2 === undefined) {
                 num2 = button.textContent;
@@ -51,6 +64,8 @@ numberButtons.forEach((button) => {
                 num2 += button.textContent;
             }
             console.log(num1, operator, num2);   
+            num2 = removeLeadingZeros(num2);
+            display.textContent = num1 + operator + num2;
         }     
     });
 });
@@ -73,6 +88,7 @@ operatorButtons.forEach((button) => {
         }
         operator = button.textContent;
         console.log(num1, operator, num2);
+        display.textContent = num1 + operator;
     });
 });
 
@@ -82,19 +98,20 @@ const equalsButton = document.querySelector("#btnEquals");
 equalsButton.addEventListener("click", () => {
     if (num2 === undefined) {
         return;
-    } else if (operator == "/" && num2 == 0) {
+    } else if (operator == "÷" && num2 == 0) {
         numEquals = "ERROR"
         num1 = undefined;
         num2 = undefined;
         operator = undefined;
     } else {
-        numEquals = operate(Number(num1), operator, Number(num2));
+        numEquals = parseFloat(operate(Number(num1), operator, Number(num2)).toFixed(3)).toString();
         num1 = undefined;
         num2 = undefined;
         operator = undefined;
     }
     console.log(numEquals);
     console.log(num1, operator, num2);
+    display.textContent = numEquals;
 });
 
 
@@ -106,6 +123,7 @@ allClearButton.addEventListener("click", () => {
     operator = undefined;
     numEquals = undefined;
     console.log(num1, operator, num2, numEquals);
+    display.textContent = "0";
 });
 
 
@@ -118,12 +136,17 @@ deleteButton.addEventListener("click", () => {
         let myString = myArray.join("")
         num1 = myString;
         console.log(num1, operator, num2);
+        display.textContent = num1;
     } else {
         const myArray = Array.from(num2);
         myArray.pop();
         let myString = myArray.join("")
         num2 = myString;
         console.log(num1, operator, num2);
+        display.textContent = num1 + operator + num2;
+    }
+    if (display.textContent == "") {
+        display.textContent = 0;
     }
 });
 
@@ -134,7 +157,6 @@ decimalButton.addEventListener("click", () => {
     function containsSubstringTwice(str, substring) {
         const regex = new RegExp(substring, "g");
         const matches = str.match(regex);
-        
         return matches && matches.length >= 2;
     }
 
@@ -145,6 +167,7 @@ decimalButton.addEventListener("click", () => {
         num1 = myString;
         console.log(num1, operator, num2);
         console.log(containsSubstringTwice(num1, "\\."));  
+        display.textContent = num1;
 
     } else if (num2 !== undefined && (containsSubstringTwice(num2, "\\."))) {
         const myArray = Array.from(num2);
@@ -153,5 +176,6 @@ decimalButton.addEventListener("click", () => {
         num2 = myString;
         console.log(num1, operator, num2);
         console.log(containsSubstringTwice(num2, "\\."));
+        display.textContent = num1 + operator + num2;
     }
 });
